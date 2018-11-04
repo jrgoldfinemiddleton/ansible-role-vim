@@ -38,11 +38,11 @@
             update_cache: yes
             cache_valid_time: 3600
             state: latest
+          # ignore ansible-lint's APT 'latest' rule
+          tags:
+            - skip_ansible_lint
       become: yes
       when: ansible_distribution == 'Ubuntu' and ansible_distribution_version is version('14.04', '=')
-      # ignore ansible-lint's APT 'latest' rule
-      tags:
-        - skip_ansible_lint
 
   roles:
     - role: geerlingguy.git
