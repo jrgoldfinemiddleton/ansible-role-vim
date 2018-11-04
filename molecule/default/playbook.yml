@@ -16,5 +16,34 @@
     vim_local_vimrc_url: https://raw.githubusercontent.com/jrgoldfinemiddleton/dotfiles/master/.vimrc
     vim_local_vimrc_path: '~{{ ansible_user_id }}/.vimrc'
 
+  pre_tasks:
+    - name: Allow Ubuntu 14.04 to make HTTPS connections
+      block:
+        - name: Ensure software-properties-common is installed
+          apt:
+            name: software-properties-common
+            install_recommends: no
+            update_cache: yes
+            cache_valid_time: 3600
+            state: present
+
+        - name: Ensure jonathonf/python-2.7 repo is in APT sources list
+          apt_repository:
+            repo: ppa:jonathonf/python-2.7
+
+        - name: Ensure Python 2.7 is installed
+          apt:
+            name: python2.7
+            install_recommends: no
+            update_cache: yes
+            cache_valid_time: 3600
+            state: latest
+      become: yes
+      when: ansible_distribution == 'Ubuntu' and ansible_distribution_version is version('14.04', '=')
+      # ignore ansible-lint's APT 'latest' rule
+      tags:
+        - skip_ansible_lint
+
   roles:
+    - role: geerlingguy.git
     - role: jrgoldfinemiddleton.vim
