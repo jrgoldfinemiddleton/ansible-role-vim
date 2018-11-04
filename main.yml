@@ -3,7 +3,15 @@
   gather_facts: yes
   become: no
 
+  vars_files:
+    - default.config.yml
+
+  pre_tasks:
+    - include_vars: "{{ item }}"
+      with_fileglob:
+        - config.yml
+      tags: ['always']
+
   roles:
-    #    - { role: geerlingguy.homebrew, when: ansible_os_family == 'Darwin' }
-    #    - { role: jrgoldfinemiddleton.vim }
-    - { role: vim }
+    - role: jrgoldfinemiddleton.vim
+      tags: ['vim']
