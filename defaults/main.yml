@@ -1,7 +1,7 @@
 ---
 vim_install_package: yes
 vim_additional_packages: []
-vim_local_config_dir: '~{{ ansible_user }}/.vim'
+vim_local_config_dir: '~{{ ansible_user_id }}/.vim'
 vim_local_config_subdirs:
   - autoload
   - bundle
