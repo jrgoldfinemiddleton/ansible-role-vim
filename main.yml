@@ -4,6 +4,6 @@
   become: no
 
   roles:
- #    - { role: geerlingguy.homebrew, when: ansible_os_family == 'Darwin' }
- #    - { role: jrgoldfinemiddleton.vim }
+    #    - { role: geerlingguy.homebrew, when: ansible_os_family == 'Darwin' }
+    #    - { role: jrgoldfinemiddleton.vim }
     - { role: vim }
