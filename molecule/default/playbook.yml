@@ -3,5 +3,18 @@
   hosts: all
   become: no
 
+  vars:
+		vim_install_autoload_scripts:
+			- filename: pathogen.vim
+				url: https://tpo.pe/pathogen.vim
+		vim_install_plugins:
+			- name: vim-sensible
+				repo: https://github.com/tpope/vim-sensible.git
+			- name: ansible-vim
+				repo: https://github.com/pearofducks/ansible-vim.git
+		vim_install_vimrc: yes
+		vim_local_vimrc_url: https://raw.githubusercontent.com/jrgoldfinemiddleton/dotfiles/master/.vimrc
+		vim_local_vimrc_path: '~{{ ansible_user_id }}/.vimrc'
+
   roles:
     - role: jrgoldfinemiddleton.vim

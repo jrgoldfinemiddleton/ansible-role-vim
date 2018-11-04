@@ -100,7 +100,7 @@ Example:
 ```yaml
 vim_install_vimrc: yes
 vim_local_vimrc_url: https://raw.githubusercontent.com/jrgoldfinemiddleton/dotfiles/master/.vimrc
-vim_local_vimrc_url: '~{{ ansible_user_id }}/.vimrc'
+vim_local_vimrc_path: '~{{ ansible_user_id }}/.vimrc'
 ```
 
 Dependencies
