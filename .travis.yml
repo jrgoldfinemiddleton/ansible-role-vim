@@ -1,0 +1,21 @@
+---
+language: python
+services: docker
+
+env:
+  global:
+    - ROLE_NAME: vim
+
+install:
+  - pip install molecule docker
+
+before_script:
+  - cd ..
+  - mv ansible-role-${ROLE_NAME} jrgoldfinemiddleton.${ROLE_NAME}
+  - cd jrgoldfinemiddleton.${ROLE_NAME}
+
+script:
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

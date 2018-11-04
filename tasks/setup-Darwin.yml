@@ -1,0 +1,12 @@
+---
+- name: Ensure vim package is installed
+  homebrew:
+    name: '{{ vim_package_name }}'
+    install_options: '{{ vim_homebrew_package_install_options | default(omit) }}'
+    update_homebrew: yes
+    state: latest
+
+- name: Ensure additional packages are installed
+  homebrew:
+    name: '{{ vim_additional_packages }}'
+    state: latest

@@ -1,0 +1,23 @@
+---
+vim_install_package: yes
+vim_additional_packages: []
+vim_local_config_dir: '~{{ ansible_user | d(ansible_ssh_user) }}/.vim'
+vim_local_config_subdirs:
+  - autoload
+  - bundle
+  - colors
+  - compiler
+  - ftplugin
+  - indent
+  - keymap
+  - lang
+  - macros
+  - plugin
+  - syntax
+  - tools
+  - tutor
+
+vim_install_autoload_scripts: []
+vim_install_plugins: []
+
+vim_install_vimrc: no

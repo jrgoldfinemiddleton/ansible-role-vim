@@ -1,0 +1,13 @@
+---
+- name: Install vim DEB package
+  apt:
+    name: '{{ vim_package_name }}'
+    cache_valid_time: 3600
+    state: latest
+  become: yes
+
+- name: Install additional DEB packages
+  apt:
+    name: '{{ vim_additional_packages }}'
+    state: latest
+  become: yes

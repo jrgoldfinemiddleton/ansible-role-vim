@@ -1,0 +1,10 @@
+---
+vim_install_autoload_scripts:
+  - filename: pathogen.vim
+    url: https://tpo.pe/pathogen.vim
+
+vim_install_plugins:
+  - name: vim-sensible
+    repo: https://github.com/tpope/vim-sensible.git
+  - name: ansible-vim
+    repo: https://github.com/pearofducks/ansible-vim.git

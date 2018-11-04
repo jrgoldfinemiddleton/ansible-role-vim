@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: yes
+  become: no
+
+  roles:
+ #    - { role: geerlingguy.homebrew, when: ansible_os_family == 'Darwin' }
+ #    - { role: jrgoldfinemiddleton.vim }
+    - { role: vim }

@@ -1,0 +1,12 @@
+---
+- name: Install vim RPM package
+  yum:
+    name: '{{ vim_package_name }}'
+    state: latest
+  become: yes
+
+- name: Install additional RPM packages
+  yum:
+    name: '{{ vim_additional_packages }}'
+    state: latest
+  become: yes
