@@ -5,6 +5,11 @@ services: docker
 env:
   global:
     - ROLE_NAME: vim
+  matrix:
+    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: ubuntu1804
+    - MOLECULE_DISTRO: ubuntu1604
+    - MOLECULE_DISTRO: ubuntu1404
 
 install:
   - pip install molecule docker
